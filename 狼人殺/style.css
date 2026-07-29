@@ -1,0 +1,169 @@
+:root {
+  --bg-color: #121218;
+  --card-bg: #1e1e2a;
+  --accent: #8b5cf6;
+  --text: #f1f5f9;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --info: #38bdf8;
+  --border-color: #3a3a4c;
+  --card-inner: #181824;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.inner-card {
+  background: #14141d;
+  margin-top: 15px;
+}
+
+h1, h2, h3 { 
+  margin-top: 0; 
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.status-text {
+  align-self: center;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.role-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+#display-room-id {
+  color: var(--accent);
+}
+
+#phase-display {
+  color: var(--info);
+}
+
+.room-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.btn:hover { 
+  opacity: 0.9; 
+  transform: translateY(-1px); 
+}
+
+.btn:disabled { 
+  background: #4a4a5a; 
+  cursor: not-allowed; 
+  transform: none; 
+}
+
+.btn-danger { background: var(--danger); }
+.btn-success { background: var(--success); }
+.btn-warning { background: var(--warning); }
+
+input, select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: #14141d;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.player-card {
+  background: var(--card-inner);
+  border: 2px solid var(--border-color);
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.player-card.dead {
+  opacity: 0.4;
+  border-color: var(--danger);
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.log-box {
+  height: 180px;
+  overflow-y: auto;
+  background: #0e0e14;
+  padding: 10px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.action-panel {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.hidden { 
+  display: none !important; 
+}

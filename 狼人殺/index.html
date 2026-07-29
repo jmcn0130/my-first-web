@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 dus 狼人殺 </title>
+  <!-- 引入 PeerJS 套件與自訂樣式 -->
+  <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>🐺 dus 狼人殺 </h1>
+
+  <!-- 1. 大廳區塊 -->
+  <div id="lobby-section" class="card">
+    <h2>加入或建立遊戲</h2>
+    <div class="input-group">
+      <input type="text" id="nickname" placeholder="輸入你的暱稱" maxlength="10">
+      <button class="btn btn-success" onclick="initMic()">🎤 測試/啟用麥克風</button>
+      <span id="mic-status" class="status-text">麥克風未開啟</span>
+    </div>
+    <div class="input-group">
+      <button class="btn" onclick="createRoom()">創建新房間 (房主)</button>
+      <input type="text" id="join-room-id" placeholder="輸入房間號碼">
+      <button class="btn" onclick="joinRoom()">加入房間</button>
+    </div>
+  </div>
+
+  <!-- 2. 房間資訊與遊戲區塊 -->
+  <div id="room-section" class="card hidden">
+    <div class="room-header">
+      <div>
+        <h2>房間號碼：<span id="display-room-id"></span></h2>
+        <p id="role-display" class="role-text"></p>
+      </div>
+      <div>
+        <button id="mic-toggle-btn" class="btn btn-warning" onclick="toggleMicMute()">🎤 麥克風：靜音</button>
+        <button id="start-game-btn" class="btn hidden" onclick="hostStartGame()">開始遊戲 (需至少 5 人)</button>
+      </div>
+    </div>
+
+    <h3>當前階段：<span id="phase-display">等待玩家加入...</span></h3>
+    
+    <!-- 玩家列表 -->
+    <div id="player-list" class="grid"></div>
+
+    <!-- 操作面板區 -->
+    <div id="action-section" class="card inner-card">
+      <h3>🎮 行動面板</h3>
+      <div id="action-content" class="action-panel">無可用操作</div>
+    </div>
+  </div>
+
+  <!-- 3. 遊戲日誌區塊 -->
+  <div id="log-section" class="card hidden">
+    <h3>📜 遊戲紀錄與公告</h3>
+    <div id="game-log" class="log-box"></div>
+  </div>
+</div>
+
+<!-- 語音通話用的隱藏 Audio 元素容器 -->
+<div id="audio-container" class="hidden"></div>
+
+<!-- 引入 JS 邏輯主程式 -->
+<script src="app.js"></script>
+</body>
+</html>
